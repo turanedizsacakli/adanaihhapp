@@ -96,6 +96,18 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'newsTempleteMine',
           path: '/newsTempleteMine',
           builder: (context, params) => const NewsTempleteMineWidget(),
+        ),
+        FFRoute(
+          name: 'adminPageForNews',
+          path: '/adminPageForNews',
+          builder: (context, params) => const AdminPageForNewsWidget(),
+        ),
+        FFRoute(
+          name: 'adminAuthPage',
+          path: '/adminAuthPage',
+          builder: (context, params) => params.isEmpty
+              ? const NavBarPage(initialPage: 'adminAuthPage')
+              : const AdminAuthPageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

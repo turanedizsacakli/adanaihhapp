@@ -158,7 +158,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                       'activityPage');
                                                 },
                                                 child: Text(
-                                                  'About Adana İHH',
+                                                  columnNewsRecord.newsTitle,
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .titleLarge
@@ -192,8 +192,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                 decoration: const BoxDecoration(
                                                   shape: BoxShape.circle,
                                                 ),
-                                                child: Image.asset(
-                                                  'assets/images/logo-1-removebg-preview.PNG',
+                                                child: Image.network(
+                                                  columnNewsRecord.newsPhotos,
                                                 ),
                                               ),
                                             ),
@@ -209,7 +209,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                         children: [
                                           Expanded(
                                             child: Text(
-                                              'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+                                              columnNewsRecord.newsDetails,
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .labelMedium
