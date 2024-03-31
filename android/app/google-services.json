@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "664135631380",
+    "project_id": "adanaihhapp",
+    "storage_bucket": "adanaihhapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:664135631380:android:3d5272d24b7fdb31871d01",
+        "android_client_info": {
+          "package_name": "com.mycompany.adanaihh"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCDq8zSDIr2BLiBNjtdkTSvtom7FCxMTp8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
