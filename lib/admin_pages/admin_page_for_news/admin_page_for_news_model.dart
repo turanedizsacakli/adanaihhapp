@@ -8,6 +8,11 @@ class AdminPageForNewsModel extends FlutterFlowModel<AdminPageForNewsWidget> {
 
   final unfocusNode = FocusNode();
   final formKey = GlobalKey<FormState>();
+  bool isDataUploading = false;
+  FFUploadedFile uploadedLocalFile =
+      FFUploadedFile(bytes: Uint8List.fromList([]));
+  String uploadedFileUrl = '';
+
   // State field(s) for productName widget.
   FocusNode? productNameFocusNode;
   TextEditingController? productNameController;

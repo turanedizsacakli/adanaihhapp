@@ -1,12 +1,15 @@
+import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_web_plugins/url_strategy.dart';
+import 'auth/firebase_auth/firebase_user_provider.dart';
+import 'auth/firebase_auth/auth_util.dart';
+
 import 'backend/firebase/firebase_config.dart';
 import 'flutter_flow/flutter_flow_theme.dart';
 import 'flutter_flow/flutter_flow_util.dart';
 import 'package:floating_bottom_navigation_bar/floating_bottom_navigation_bar.dart';
-import 'flutter_flow/nav/nav.dart';
 import 'index.dart';
 
 void main() async {
@@ -14,7 +17,13 @@ void main() async {
   usePathUrlStrategy();
   await initFirebase();
 
-  runApp(const MyApp());
+  final appState = FFAppState(); // Initialize FFAppState
+  await appState.initializePersistedState();
+
+  runApp(ChangeNotifierProvider(
+    create: (context) => appState,
+    child: const MyApp(),
+  ));
 }
 
 class MyApp extends StatefulWidget {
@@ -31,10 +40,10 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   ThemeMode _themeMode = ThemeMode.system;
 
+  late Stream<BaseAuthUser> userStream;
+
   late AppStateNotifier _appStateNotifier;
   late GoRouter _router;
-
-  bool displaySplashImage = true;
 
   @override
   void initState() {
@@ -42,9 +51,13 @@ class _MyAppState extends State<MyApp> {
 
     _appStateNotifier = AppStateNotifier.instance;
     _router = createRouter(_appStateNotifier);
-
-    Future.delayed(const Duration(milliseconds: 3000),
-        () => setState(() => _appStateNotifier.stopShowingSplashImage()));
+    userStream = adanaIHHFirebaseUserStream()
+      ..listen((user) => _appStateNotifier.update(user));
+    jwtTokenStream.listen((_) {});
+    Future.delayed(
+      const Duration(milliseconds: 3000),
+      () => _appStateNotifier.stopShowingSplashImage(),
+    );
   }
 
   void setThemeMode(ThemeMode mode) => setState(() {

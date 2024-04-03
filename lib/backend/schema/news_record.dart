@@ -6,7 +6,6 @@ import '/backend/schema/util/firestore_util.dart';
 import '/backend/schema/util/schema_util.dart';
 
 import 'index.dart';
-import '/flutter_flow/flutter_flow_util.dart';
 
 class NewsRecord extends FirestoreRecord {
   NewsRecord._(
@@ -15,11 +14,6 @@ class NewsRecord extends FirestoreRecord {
   ) {
     _initializeFields();
   }
-
-  // "id" field.
-  int? _id;
-  int get id => _id ?? 0;
-  bool hasId() => _id != null;
 
   // "newsTitle" field.
   String? _newsTitle;
@@ -31,15 +25,20 @@ class NewsRecord extends FirestoreRecord {
   String get newsDetails => _newsDetails ?? '';
   bool hasNewsDetails() => _newsDetails != null;
 
+  // "newsCategories" field.
+  String? _newsCategories;
+  String get newsCategories => _newsCategories ?? '';
+  bool hasNewsCategories() => _newsCategories != null;
+
   // "newsPhotos" field.
   String? _newsPhotos;
   String get newsPhotos => _newsPhotos ?? '';
   bool hasNewsPhotos() => _newsPhotos != null;
 
   void _initializeFields() {
-    _id = castToType<int>(snapshotData['id']);
     _newsTitle = snapshotData['newsTitle'] as String?;
     _newsDetails = snapshotData['newsDetails'] as String?;
+    _newsCategories = snapshotData['newsCategories'] as String?;
     _newsPhotos = snapshotData['newsPhotos'] as String?;
   }
 
@@ -77,16 +76,16 @@ class NewsRecord extends FirestoreRecord {
 }
 
 Map<String, dynamic> createNewsRecordData({
-  int? id,
   String? newsTitle,
   String? newsDetails,
+  String? newsCategories,
   String? newsPhotos,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
-      'id': id,
       'newsTitle': newsTitle,
       'newsDetails': newsDetails,
+      'newsCategories': newsCategories,
       'newsPhotos': newsPhotos,
     }.withoutNulls,
   );
@@ -99,15 +98,15 @@ class NewsRecordDocumentEquality implements Equality<NewsRecord> {
 
   @override
   bool equals(NewsRecord? e1, NewsRecord? e2) {
-    return e1?.id == e2?.id &&
-        e1?.newsTitle == e2?.newsTitle &&
+    return e1?.newsTitle == e2?.newsTitle &&
         e1?.newsDetails == e2?.newsDetails &&
+        e1?.newsCategories == e2?.newsCategories &&
         e1?.newsPhotos == e2?.newsPhotos;
   }
 
   @override
   int hash(NewsRecord? e) => const ListEquality()
-      .hash([e?.id, e?.newsTitle, e?.newsDetails, e?.newsPhotos]);
+      .hash([e?.newsTitle, e?.newsDetails, e?.newsCategories, e?.newsPhotos]);
 
   @override
   bool isValidKey(Object? o) => o is NewsRecord;

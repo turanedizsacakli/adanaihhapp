@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "664135631380",
-    "project_id": "adanaihhapp",
-    "storage_bucket": "adanaihhapp.appspot.com"
+    "project_number": "267782923497",
+    "project_id": "adanaihh-64cf5",
+    "storage_bucket": "adanaihh-64cf5.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:664135631380:android:3d5272d24b7fdb31871d01",
+        "mobilesdk_app_id": "1:267782923497:android:46e17a23dd1cb7b1503c78",
         "android_client_info": {
           "package_name": "com.mycompany.adanaihh"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyCDq8zSDIr2BLiBNjtdkTSvtom7FCxMTp8"
+          "current_key": "AIzaSyCOjNTEipu2eY7nNbPFTp9khxd-W-DFBxo"
         }
       ],
       "services": {
